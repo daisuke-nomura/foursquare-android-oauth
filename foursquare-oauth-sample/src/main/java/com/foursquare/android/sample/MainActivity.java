@@ -80,8 +80,9 @@ public class MainActivity extends FragmentActivity {
      * message.
      */
     private void ensureUi() {
-        boolean isAuthorized = !TextUtils.isEmpty(ExampleTokenStore.get().getToken());
-        
+//        boolean isAuthorized = !TextUtils.isEmpty(ExampleTokenStore.get().getToken());
+        boolean isAuthorized = !TextUtils.isEmpty(PersistentTokenStore.getInstance().getToken());
+
         TextView tvMessage = findViewById(R.id.tvMessage);
         tvMessage.setVisibility(isAuthorized ? View.VISIBLE : View.GONE);
 
@@ -157,6 +158,7 @@ public class MainActivity extends FragmentActivity {
             // Persist the token for later use. In this example, we save
             // it to shared prefs.
             ExampleTokenStore.get().setToken(accessToken);
+            PersistentTokenStore.getInstance().setToken(accessToken);
             
             // Refresh UI.
             ensureUi();
