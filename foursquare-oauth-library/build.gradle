@@ -12,6 +12,10 @@ android {
     }
 }
 
+dependencies {
+    compile 'com.squareup.okhttp3:okhttp:3.9.0'
+}
+
 //def isReleaseBuild() {
 //    return VERSION_NAME.contains("SNAPSHOT") == false
 //}

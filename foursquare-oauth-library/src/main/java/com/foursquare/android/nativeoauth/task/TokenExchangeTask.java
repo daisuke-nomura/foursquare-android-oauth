@@ -17,9 +17,11 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.URL;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class TokenExchangeTask extends AsyncTask<String, Void, AccessTokenResponse> implements Serializable {
 
@@ -43,14 +45,16 @@ public class TokenExchangeTask extends AsyncTask<String, Void, AccessTokenRespon
     @Override
     protected AccessTokenResponse doInBackground(String... params) {
         String accessTokenUrl = String.format(ACCESS_TOKEN_URL, params[0], params[1], params[2]);
-        AccessTokenResponse result = null;
-        HttpURLConnection connection = null;
+        AccessTokenResponse result;
+        OkHttpClient client = new OkHttpClient();
+
+        Request request = new Request.Builder()
+                .url(accessTokenUrl)
+                .build();
 
         try {
-            URL url = new URL(accessTokenUrl);
-            connection = (HttpURLConnection) url.openConnection();
-            InputStream in = connection.getInputStream();
-            String json = readStream(in);
+            Response response = client.newCall(request).execute();
+            String json = response.body().string();
             result = parseAccessToken(json);
 
         } catch (MalformedURLException e) {
@@ -61,10 +65,6 @@ public class TokenExchangeTask extends AsyncTask<String, Void, AccessTokenRespon
             result = createErrorResponse(e);
         } catch (Exception e) {
             result = createErrorResponse(e);
-        } finally {
-            if (connection != null) {
-                connection.disconnect();
-            }
         }
         return result;
     }
