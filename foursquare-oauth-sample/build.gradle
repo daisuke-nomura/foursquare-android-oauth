@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'maven'
+//apply plugin: 'maven'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION
