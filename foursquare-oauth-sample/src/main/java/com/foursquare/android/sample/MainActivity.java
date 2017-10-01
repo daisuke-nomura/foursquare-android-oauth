@@ -26,12 +26,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.foursquare.android.nativeoauth.FoursquareCancelException;
-import com.foursquare.android.nativeoauth.FoursquareDenyException;
-import com.foursquare.android.nativeoauth.FoursquareInvalidRequestException;
+import com.foursquare.android.nativeoauth.exception.FoursquareCancelException;
+import com.foursquare.android.nativeoauth.exception.FoursquareDenyException;
+import com.foursquare.android.nativeoauth.exception.FoursquareInvalidRequestException;
 import com.foursquare.android.nativeoauth.FoursquareOAuth;
-import com.foursquare.android.nativeoauth.FoursquareOAuthException;
-import com.foursquare.android.nativeoauth.FoursquareUnsupportedVersionException;
+import com.foursquare.android.nativeoauth.exception.FoursquareOAuthException;
+import com.foursquare.android.nativeoauth.exception.FoursquareUnsupportedVersionException;
 import com.foursquare.android.nativeoauth.model.AccessTokenResponse;
 import com.foursquare.android.nativeoauth.model.AuthCodeResponse;
 

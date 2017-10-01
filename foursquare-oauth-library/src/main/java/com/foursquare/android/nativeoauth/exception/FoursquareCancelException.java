@@ -13,28 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.foursquare.android.nativeoauth;
+package com.foursquare.android.nativeoauth.exception;
 
 /**
- * Thrown when there is an authentication problem on Foursquare's side.
+ * Thrown when the user cancels out of authentication.
  * 
  * @date 2013-06-01
  */
-public class FoursquareInternalErrorException extends RuntimeException {
+public class FoursquareCancelException extends Exception {
+    
     private static final long serialVersionUID = 1L;
-
-    public FoursquareInternalErrorException() {
+    
+    public FoursquareCancelException() {
     }
 
-    public FoursquareInternalErrorException(String detailMessage) {
+    public FoursquareCancelException(String detailMessage) {
         super(detailMessage);
     }
 
-    public FoursquareInternalErrorException(Throwable throwable) {
+    public FoursquareCancelException(Throwable throwable) {
         super(throwable);
     }
 
-    public FoursquareInternalErrorException(String detailMessage, Throwable throwable) {
+    public FoursquareCancelException(String detailMessage, Throwable throwable) {
         super(detailMessage, throwable);
     }
 }

@@ -13,29 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.foursquare.android.nativeoauth;
+package com.foursquare.android.nativeoauth.exception;
 
 /**
- * Thrown when authentication is denied.
+ * Thrown when there is an authentication problem on Foursquare's side.
  * 
  * @date 2013-06-01
  */
-public class FoursquareDenyException extends Exception {
-    
+public class FoursquareInternalErrorException extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
-    public FoursquareDenyException() {
+    public FoursquareInternalErrorException() {
     }
 
-    public FoursquareDenyException(String detailMessage) {
+    public FoursquareInternalErrorException(String detailMessage) {
         super(detailMessage);
     }
 
-    public FoursquareDenyException(Throwable throwable) {
+    public FoursquareInternalErrorException(Throwable throwable) {
         super(throwable);
     }
 
-    public FoursquareDenyException(String detailMessage, Throwable throwable) {
+    public FoursquareInternalErrorException(String detailMessage, Throwable throwable) {
         super(detailMessage, throwable);
     }
 }

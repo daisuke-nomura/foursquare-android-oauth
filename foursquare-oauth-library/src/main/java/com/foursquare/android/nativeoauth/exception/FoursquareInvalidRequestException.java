@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.foursquare.android.nativeoauth;
+package com.foursquare.android.nativeoauth.exception;
 
 /**
  * Thrown when an invalid request is made.

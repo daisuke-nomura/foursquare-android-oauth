@@ -13,29 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.foursquare.android.nativeoauth;
+package com.foursquare.android.nativeoauth.exception;
 
 /**
- * Thrown when the user cancels out of authentication.
+ * An exception indicating that an error occured during the Foursqure OAuth
+ * process. The error code details can be found <a
+ * href="http://tools.ietf.org/html/rfc6749#section-5.2">here</a>
  * 
  * @date 2013-06-01
  */
-public class FoursquareCancelException extends Exception {
+public class FoursquareOAuthException extends Exception {
     
     private static final long serialVersionUID = 1L;
-    
-    public FoursquareCancelException() {
+    private String mErrorCode;
+
+    public FoursquareOAuthException(String errorCode) {
+        super("An error occurred during authorization.");
+        mErrorCode = errorCode;
     }
 
-    public FoursquareCancelException(String detailMessage) {
-        super(detailMessage);
-    }
-
-    public FoursquareCancelException(Throwable throwable) {
+    public FoursquareOAuthException(Throwable throwable) {
         super(throwable);
     }
 
-    public FoursquareCancelException(String detailMessage, Throwable throwable) {
+    public FoursquareOAuthException(String detailMessage, Throwable throwable) {
         super(detailMessage, throwable);
+    }
+    
+    public String getErrorCode() {
+        return mErrorCode;
     }
 }

@@ -26,6 +26,12 @@ import android.content.pm.Signature;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import com.foursquare.android.nativeoauth.exception.FoursquareCancelException;
+import com.foursquare.android.nativeoauth.exception.FoursquareDenyException;
+import com.foursquare.android.nativeoauth.exception.FoursquareInternalErrorException;
+import com.foursquare.android.nativeoauth.exception.FoursquareInvalidRequestException;
+import com.foursquare.android.nativeoauth.exception.FoursquareOAuthException;
+import com.foursquare.android.nativeoauth.exception.FoursquareUnsupportedVersionException;
 import com.foursquare.android.nativeoauth.model.AccessTokenResponse;
 import com.foursquare.android.nativeoauth.model.AuthCodeResponse;
 

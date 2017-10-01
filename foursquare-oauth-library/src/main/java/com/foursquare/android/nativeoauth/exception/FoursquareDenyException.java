@@ -13,30 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.foursquare.android.nativeoauth;
+package com.foursquare.android.nativeoauth.exception;
 
 /**
- * Thrown when the version number of the Foursquare application on the
- * user's device is too old to support authentication.
+ * Thrown when authentication is denied.
  * 
  * @date 2013-06-01
  */
-public class FoursquareUnsupportedVersionException extends Exception {
+public class FoursquareDenyException extends Exception {
     
     private static final long serialVersionUID = 1L;
 
-    public FoursquareUnsupportedVersionException() {
+    public FoursquareDenyException() {
     }
 
-    public FoursquareUnsupportedVersionException(String detailMessage) {
+    public FoursquareDenyException(String detailMessage) {
         super(detailMessage);
     }
 
-    public FoursquareUnsupportedVersionException(Throwable throwable) {
+    public FoursquareDenyException(Throwable throwable) {
         super(throwable);
     }
 
-    public FoursquareUnsupportedVersionException(String detailMessage, Throwable throwable) {
+    public FoursquareDenyException(String detailMessage, Throwable throwable) {
         super(detailMessage, throwable);
     }
 }

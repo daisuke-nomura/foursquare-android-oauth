@@ -13,34 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.foursquare.android.nativeoauth;
+package com.foursquare.android.nativeoauth.exception;
 
 /**
- * An exception indicating that an error occured during the Foursqure OAuth
- * process. The error code details can be found <a
- * href="http://tools.ietf.org/html/rfc6749#section-5.2">here</a>
+ * Thrown when the version number of the Foursquare application on the
+ * user's device is too old to support authentication.
  * 
  * @date 2013-06-01
  */
-public class FoursquareOAuthException extends Exception {
+public class FoursquareUnsupportedVersionException extends Exception {
     
     private static final long serialVersionUID = 1L;
-    private String mErrorCode;
 
-    public FoursquareOAuthException(String errorCode) {
-        super("An error occurred during authorization.");
-        mErrorCode = errorCode;
+    public FoursquareUnsupportedVersionException() {
     }
 
-    public FoursquareOAuthException(Throwable throwable) {
+    public FoursquareUnsupportedVersionException(String detailMessage) {
+        super(detailMessage);
+    }
+
+    public FoursquareUnsupportedVersionException(Throwable throwable) {
         super(throwable);
     }
 
-    public FoursquareOAuthException(String detailMessage, Throwable throwable) {
+    public FoursquareUnsupportedVersionException(String detailMessage, Throwable throwable) {
         super(detailMessage, throwable);
-    }
-    
-    public String getErrorCode() {
-        return mErrorCode;
     }
 }
